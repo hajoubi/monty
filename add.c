@@ -1,32 +1,20 @@
 #include "main.h"
-/**
- * f_add - adds the top two elements of the stack.
- * @head: stack head
- * @counter: line_number
- * Return: nothing to return
-*/
-void f_add(stack_t **head, unsigned int counter)
-{
-	stack_t *h;
-	int len = 0, aux;
 
-	h = *head;
-	while (h)
-	{
-		h = h->next;
-		len++;
-	}
-	if (len < 2)
-	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", counter);
-		fclose(bus.file);
-		free(bus.content);
-		free_stack(*head);
-		exit(EXIT_FAILURE);
-	}
-	h = *head;
-	aux = h->n + h->next->n;
-	h->next->n = aux;
-	*head = h->next;
-	free(h);
+/**
+ * _add - This function adds the top two elements of the stack.
+ *
+ * @top: Pointer to the top of the stack.
+ * @line_number: Line number of the opcode.
+ */
+
+void _add(stack_t **top, uint line_number)
+{
+	stack_t *tmp;
+
+	if (*top == NULL || (*top)->next == NULL)
+		add_error(line_number);
+
+	tmp = (*top)->next;
+	tmp->n += (*top)->n;
+	pop_stack(top, line_number);
 }

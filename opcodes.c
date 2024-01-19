@@ -15,11 +15,25 @@ void (*get_op_code(char *token, uint line)) (stack_t **, uint)
 		{"push", push_stack},
 		{"pall", pall_stack},
 		{"pint", pint_stack},
-		{"pop", pop_stack},{"stack", _stack},
+		{"pop", pop_stack},
+		{"swap", _swap},
+		{"nop", _nop},
+		{"add", _add},
+		{"sub", _sub},
+		{"div", _div},
+		{"mul", _mul},
+		{"mod", _mod},
+		{"pchar", _pchar},
+		{"pstr", _pstr},
+		{"rotl", _rotl},
+		{"rotr", _rotr},
+		{"#", _nop},
+		{"", _nop},
+		{"stack", _stack},
 		{"queue", _queue},
 		{NULL, NULL}
 	};
-  for (i = 0; operation[i].opcode != NULL; i++)
+	for (i = 0; operation[i].opcode != NULL; i++)
 	{
 		if (strcmp(token, operation[i].opcode) == 0)
 		{
@@ -28,16 +42,4 @@ void (*get_op_code(char *token, uint line)) (stack_t **, uint)
 	}
 	invalidInstruction_error(token, line);
 	return (NULL);
-}
-/**
- * _nop - This function does nothing.
- *
- * @top: Pointer to the top of the stack.
- * @line: Line number of the opcode.
- */
-
-void _nop(stack_t **top, uint line)
-{
-	(void) top;
-	(void) line;
 }

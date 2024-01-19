@@ -1,12 +1,13 @@
 #include "main.h"
 /**
-  *f_nop- nothing
-  *@head: stack head
-  *@counter: line_number
-  *Return: nothing to return
+ * _nop - This function does nothing.
+ *
+ * @top: Pointer to the top of the stack.
+ * @line: Line number of the opcode.
  */
-void f_nop(stack_t **head, unsigned int counter)
+
+void _nop(stack_t **top, uint line)
 {
-	(void) counter;
-	(void) head;
+	(void) top;
+	(void) line;
 }

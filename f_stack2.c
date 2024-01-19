@@ -7,32 +7,55 @@
  * @line_number: Line number of the opcode.
  */
 
-void pint_stack(stack_t **top, uint line_number)
+void _sub(stack_t **top, uint line_number)
 {
-	stack_t *tmp = *top;
+	stack_t *tmp;
 
-	if (tmp != NULL)
-		printf("%d\n", tmp->n);
-	else
-		pint_error(line_number);
+	if (*top == NULL || (*top)->next == NULL)
+		sub_error(line_number);
+
+	tmp = (*top)->next;
+	tmp->n -= (*top)->n;
+	pop_stack(top, line_number);
 }
 
 /**
- * pop_stack - This function removes the top element of the stack.
+ * _div - This function divides the top two elements of the stack.
  *
  * @top: Pointer to the top of the stack.
  * @line_number: Line number of the opcode.
  */
 
-void pop_stack(stack_t **top, uint line_number)
+void _div(stack_t **top, uint line_number)
+{
+	stack_t *tmp = *top;
+
+	if (tmp == NULL || tmp->next == NULL)
+		div_error(line_number);
+
+	if (tmp->n == 0)
+		div_error2(line_number);
+
+	tmp->next->n = tmp->next->n / tmp->n;
+	*top = tmp->next;
+	free(tmp);
+}
+
+/**
+ * _mul - This function multiplies the top two elements of the stack.
+ *
+ * @top: Pointer to the top of the stack.
+ * @line_number: Line number of the opcode.
+ */
+
+void _mul(stack_t **top, uint line_number)
 {
 	stack_t *tmp;
 
-	tmp = *top;
-	if (*top == NULL)
-		pop_error(line_number);
+	if (*top == NULL || (*top)->next == NULL)
+		mul_error(line_number);
 
-	tmp = tmp->next;
-	free(*top);
-	*top = tmp;
+	tmp = (*top)->next;
+	tmp->n *= (*top)->n;
+	pop_stack(top, line_number);
 }
