@@ -1,1 +1,1 @@
-this is Stacks and Queues Project In C
+this is Stacks and Queues project in c
