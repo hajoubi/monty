@@ -59,6 +59,7 @@ void open_and_read(char **argv);
 void (*get_op_code(char *token, uint line)) (stack_t **, uint);
 void _nop(stack_t **top, uint line);
 
+<<<<<<< HEAD
  /* Stack */
 void push_stack(stack_t **top, uint line_number);
 void pall_stack(stack_t **top, uint line_number);
@@ -70,5 +71,21 @@ void open_and_read(char **argv);
 int is_comment(char *token, int line_counter);
 int is_number(char *token);
 void _queue(stack_t **top, uint line_number);
+=======
+ssize_t getstdin(char **lineptr, int file);
+void f_push(stack_t **head, unsigned int number);
+void f_pall(stack_t **head, unsigned int number);
+void f_pint(stack_t **head, unsigned int number);
+int execute(char *content, stack_t **head, unsigned int counter, FILE *file);
+void f_pop(stack_t **head, unsigned int counter);
+void addnode(stack_t **head, int n);
+void free_stack(stack_t *head);
+void addqueue(stack_t **head, int n);
+void f_stack(stack_t **head, unsigned int counter);
+void f_queue(stack_t **head, unsigned int counter);
+void f_swap(stack_t **head, unsigned int counter);
+void f_add(stack_t **head, unsigned int counter);
+void f_nop(stack_t **head, unsigned int counter);
+>>>>>>> c02704dba70399584cf7c5c61b25cca6a02ce2b6
 
 #endif

@@ -1,7 +1,27 @@
 #include "main.h"
 
+<<<<<<< HEAD
 extern int number;
 #define DELIM "\n\t\r "
+=======
+/**
+* execute - function that executes the opcode
+* @stack: head stack linked list
+* @counter: line count
+* @file: pointer to monty file stream
+* @content: line content
+*
+* Return: nothing
+*/
+int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
+{
+	instruction_t opst[] = {
+				{"push", f_push}, {"pall", f_pall}, {"pint", f_pint},
+				{"pop", f_pop}, {NULL, NULL}
+				};
+	unsigned int i = 0;
+	char *op;
+>>>>>>> c02704dba70399584cf7c5c61b25cca6a02ce2b6
 
 /**
  * open_and_read - Opens and reads the Monty file, executing the commands.
