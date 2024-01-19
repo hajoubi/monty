@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * pint_stack - This function prints the value at the top of the stack.
+ * _sub - This function prints the value at the top of the stack.
  *
  * @top: Pointer to the top of the stack.
  * @line_number: Line number of the opcode.

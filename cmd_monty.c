@@ -1,7 +1,6 @@
 #include "main.h"
 
 
-extern int number;
 #define DELIM "\n\t\r "
 
 /**

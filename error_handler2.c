@@ -37,6 +37,12 @@ void swap_error(uint line)
 	exit(EXIT_FAILURE);
 }
 
+/**
+ * add_error - this function prints error can't add
+ *
+ * @line: line number of the opcode.
+ */
+
 void add_error(uint line)
 {
 	fprintf(stderr, "L%u: can't add, stack too short\n", line);

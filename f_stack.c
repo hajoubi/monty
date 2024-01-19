@@ -1,8 +1,5 @@
 #include "main.h"
 
-int data_structure_type = 0; /* 0 for stack, 1 for queue */
-int number;
-
 /**
  * push_stack - This function pushes an element to the stack.
  *
