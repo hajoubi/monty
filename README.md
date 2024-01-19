@@ -1,1 +1,1 @@
-stacks and queues implementation in c
+stacks and queues implementation in c programming
